@@ -1,0 +1,1270 @@
+/* ==========================================================================
+   BREW BLOCKS — STRICT FLAT DESIGN STYLESHEET
+   Pure geometric visual language.
+   Strict Flat Design: Solid color fills only. Pure geometric shapes.
+   Hierarchy comes from color, size, weight and spacing.
+   Hover states use background color shifts and subtle flat scaling.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables & Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Strict Flat Palette */
+  --color-bg: #12101F;          /* Deep navy */
+  --color-primary: #2F3CFF;     /* Electric blue */
+  --color-yellow: #FFB800;      /* Accent 1: Yellow */
+  --color-red: #FF3B47;         /* Accent 2: Red */
+  --color-green: #1FE066;       /* Accent 3: Green */
+  --color-cream: #F8F4EC;       /* Cream light text */
+  --color-navy-text: #12101F;   /* Contrast dark text for yellow/green */
+  --color-surface-dark: #1A172F;/* Solid card background for form */
+
+  /* Typography */
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* 8px Spacing Scale */
+  --space-8: 8px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 80px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Global Defaults
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-24);
+  padding-right: var(--space-24);
+}
+
+/* Section Header Utility */
+.section-header {
+  margin-bottom: var(--space-48);
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: var(--color-cream);
+  line-height: 1.15;
+  margin-bottom: var(--space-16);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 8px;
+  background-color: var(--color-yellow);
+  margin-top: var(--space-8);
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-cream);
+  max-width: 600px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Buttons & Interactive Elements
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.125rem;
+  padding: var(--space-16) var(--space-32);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+
+.btn-yellow:hover {
+  background-color: var(--color-green);
+  color: var(--color-navy-text);
+  transform: scale(1.03);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-cream);
+  border: 3px solid var(--color-cream);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-cream);
+  transform: scale(1.03);
+}
+
+.btn-green {
+  background-color: var(--color-green);
+  color: var(--color-navy-text);
+}
+
+.btn-green:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+  transform: scale(1.02);
+}
+
+/* --------------------------------------------------------------------------
+   4. Header & Navigation
+   -------------------------------------------------------------------------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: var(--color-bg);
+  border-bottom: 4px solid var(--color-primary);
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-24);
+  padding-right: var(--space-24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+}
+
+.logo-block {
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-yellow);
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-cream);
+  letter-spacing: -0.02em;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: none;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-32);
+}
+
+.nav-link {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--color-cream);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+  position: relative;
+  display: inline-block;
+}
+
+/* Active & hover link gets a solid yellow underline block */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-yellow);
+  display: none;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  display: block;
+}
+
+.nav-link-order {
+  background-color: var(--color-primary);
+  padding: 8px 20px;
+  color: var(--color-cream);
+}
+
+.nav-link-order:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+
+.nav-link-order::after {
+  display: none !important;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 48px;
+  height: 48px;
+  padding: 12px 10px;
+  background-color: var(--color-primary);
+  border: none;
+  cursor: pointer;
+}
+
+.hamburger-btn:hover {
+  background-color: var(--color-red);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-cream);
+}
+
+/* Full-Screen Solid Blue Mobile Panel */
+.mobile-nav-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-primary);
+  z-index: 999;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-32) var(--space-24);
+}
+
+.mobile-nav-panel.open {
+  display: flex;
+}
+
+.mobile-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 4px solid var(--color-yellow);
+  padding-bottom: var(--space-16);
+}
+
+.mobile-logo-text {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-cream);
+}
+
+.close-menu-btn {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+  font-size: 2.25rem;
+  line-height: 1;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-menu-btn:hover {
+  background-color: var(--color-red);
+  color: var(--color-cream);
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-48);
+}
+
+.mobile-nav-link {
+  font-size: clamp(2rem, 8vw, 3rem);
+  font-weight: 800;
+  color: var(--color-cream);
+  display: block;
+  padding: var(--space-8) var(--space-16);
+}
+
+.mobile-nav-link:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+
+.mobile-order-btn {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+  display: inline-block;
+  margin-top: var(--space-16);
+}
+
+.mobile-order-btn:hover {
+  background-color: var(--color-green);
+  color: var(--color-navy-text);
+}
+
+.mobile-nav-footer {
+  border-top: 2px solid var(--color-cream);
+  padding-top: var(--space-16);
+}
+
+.mobile-palette-hint {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-cream);
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+  padding-top: var(--space-64);
+  padding-bottom: var(--space-80);
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-48);
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  background-color: var(--color-red);
+  color: var(--color-cream);
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-16);
+}
+
+.hero-headline {
+  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  font-weight: 800;
+  color: var(--color-cream);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-24);
+}
+
+.hero-subheading {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-cream);
+  margin-bottom: var(--space-32);
+  max-width: 520px;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+}
+
+/* Abstract Coffee Cup CSS Art Composition */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--space-24);
+  padding-bottom: var(--space-24);
+}
+
+.abstract-cup-composition {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+/* Rising Steam Shapes (Cream, Yellow, Red solid rectangles) */
+.steam-shape {
+  position: absolute;
+  border-radius: 6px;
+}
+
+.steam-1 {
+  width: 12px;
+  height: 44px;
+  background-color: var(--color-cream);
+  left: 95px;
+  top: 10px;
+}
+
+.steam-2 {
+  width: 12px;
+  height: 56px;
+  background-color: var(--color-yellow);
+  left: 145px;
+  top: 0px;
+}
+
+.steam-3 {
+  width: 12px;
+  height: 38px;
+  background-color: var(--color-red);
+  left: 195px;
+  top: 16px;
+}
+
+/* Cup Handle: Red Solid Circle */
+.shape-handle {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  background-color: var(--color-red);
+  border-radius: 50%;
+  right: 18px;
+  top: 100px;
+  z-index: 1;
+}
+
+/* Cup Handle inner cutout block (navy matching background) */
+.shape-handle::after {
+  content: "";
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  background-color: var(--color-bg);
+  border-radius: 50%;
+  top: 28px;
+  left: 28px;
+}
+
+/* Cup Body: Electric Blue Rounded Square */
+.shape-cup-body {
+  position: absolute;
+  width: 180px;
+  height: 170px;
+  background-color: var(--color-primary);
+  border-radius: 0 0 54px 54px;
+  left: 60px;
+  top: 75px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Cup Sleeve: Yellow Rectangle */
+.shape-sleeve {
+  position: absolute;
+  width: 180px;
+  height: 58px;
+  background-color: var(--color-yellow);
+  left: 0;
+  top: 50px;
+  z-index: 3;
+}
+
+/* Saucer / Base: Green Square/Bar */
+.shape-saucer {
+  position: absolute;
+  width: 250px;
+  height: 28px;
+  background-color: var(--color-green);
+  left: 25px;
+  top: 255px;
+  z-index: 3;
+}
+
+/* Decorative Geometric Accents */
+.accent-square-top {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-green);
+  left: 16px;
+  top: 28px;
+  z-index: 1;
+}
+
+.accent-circle-bottom {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-yellow);
+  border-radius: 50%;
+  right: 10px;
+  top: 250px;
+  z-index: 4;
+}
+
+/* --------------------------------------------------------------------------
+   6. Menu Section
+   -------------------------------------------------------------------------- */
+.menu-section {
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
+  border-top: 4px solid var(--color-primary);
+}
+
+/* Menu Category Switcher */
+.category-tabs {
+  display: flex;
+  gap: var(--space-16);
+  margin-bottom: var(--space-40);
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 12px 28px;
+  background-color: transparent;
+  color: var(--color-cream);
+  border: 3px solid var(--color-cream);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tab-btn:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.tab-btn.active {
+  background-color: var(--color-yellow);
+  border-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+
+/* Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-24);
+}
+
+/* Base Menu Card */
+.menu-card {
+  padding: var(--space-32);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
+
+.menu-card:hover {
+  transform: scale(1.02);
+}
+
+.card-tag {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-16);
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 10px;
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+}
+
+.card-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: var(--space-16);
+}
+
+.card-desc {
+  font-size: 1rem;
+  line-height: 1.55;
+  margin-bottom: var(--space-24);
+  flex-grow: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 3px solid currentColor;
+  padding-top: var(--space-16);
+}
+
+.card-price {
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.card-action {
+  font-weight: 800;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 8px 18px;
+  background-color: currentColor;
+}
+
+/* Specific Card Solid Color Roles & Hover Shifts */
+
+/* Electric Blue Card */
+.card-blue {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+.card-blue .card-action {
+  color: var(--color-primary);
+  background-color: var(--color-cream);
+}
+.card-blue:hover {
+  background-color: var(--color-red);
+  color: var(--color-cream);
+}
+.card-blue:hover .card-action {
+  color: var(--color-red);
+  background-color: var(--color-cream);
+}
+
+/* Yellow Card (Navy Text) */
+.card-yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+.card-yellow .card-action {
+  color: var(--color-yellow);
+  background-color: var(--color-navy-text);
+}
+.card-yellow:hover {
+  background-color: var(--color-green);
+  color: var(--color-navy-text);
+}
+.card-yellow:hover .card-action {
+  color: var(--color-green);
+  background-color: var(--color-navy-text);
+}
+
+/* Red Card */
+.card-red {
+  background-color: var(--color-red);
+  color: var(--color-cream);
+}
+.card-red .card-action {
+  color: var(--color-red);
+  background-color: var(--color-cream);
+}
+.card-red:hover {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+.card-red:hover .card-action {
+  color: var(--color-primary);
+  background-color: var(--color-cream);
+}
+
+/* Green Card (Navy Text) */
+.card-green {
+  background-color: var(--color-green);
+  color: var(--color-navy-text);
+}
+.card-green .card-action {
+  color: var(--color-green);
+  background-color: var(--color-navy-text);
+}
+.card-green:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+.card-green:hover .card-action {
+  color: var(--color-yellow);
+  background-color: var(--color-navy-text);
+}
+
+/* Menu Card Category Hide State */
+.menu-card.hidden {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Story Section
+   -------------------------------------------------------------------------- */
+.story-section {
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
+  border-top: 4px solid var(--color-red);
+}
+
+.story-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-48);
+}
+
+.section-tag {
+  display: inline-block;
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+  font-weight: 800;
+  font-size: 0.875rem;
+  padding: 6px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-16);
+}
+
+.statement-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--color-cream);
+  margin-bottom: var(--space-24);
+}
+
+.statement-body {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-cream);
+  margin-bottom: var(--space-16);
+}
+
+/* Story Stat Blocks */
+.story-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.stat-block {
+  padding: var(--space-32);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.stat-block:hover {
+  transform: scale(1.02);
+}
+
+.stat-number {
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: var(--space-8);
+}
+
+.stat-label {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-8);
+}
+
+.stat-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Stat Block Solid Colors */
+.stat-blue {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+.stat-blue:hover {
+  background-color: var(--color-red);
+}
+
+.stat-yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+.stat-yellow:hover {
+  background-color: var(--color-green);
+}
+
+.stat-green {
+  background-color: var(--color-green);
+  color: var(--color-navy-text);
+}
+.stat-green:hover {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+/* --------------------------------------------------------------------------
+   8. Visit & Order Section
+   -------------------------------------------------------------------------- */
+.visit-section {
+  padding-top: var(--space-80);
+  padding-bottom: var(--space-80);
+  border-top: 4px solid var(--color-green);
+}
+
+.visit-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+}
+
+/* Solid Info Blocks */
+.info-blocks-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.info-block {
+  padding: var(--space-32);
+  transition: transform 0.15s ease;
+}
+
+.info-block:hover {
+  transform: scale(1.02);
+}
+
+.info-blue {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.info-red {
+  background-color: var(--color-red);
+  color: var(--color-cream);
+}
+
+.info-yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+
+.info-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: var(--space-16);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-8) 0;
+  border-bottom: 2px solid var(--color-bg);
+  font-size: 1rem;
+}
+
+.hours-list .day {
+  font-weight: 700;
+}
+
+.info-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.info-subtext {
+  font-size: 1rem;
+  margin-bottom: var(--space-16);
+}
+
+.info-badge {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Geometric Solid CSS Icons */
+.info-icon-box {
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--space-16);
+  position: relative;
+}
+
+/* Flat Clock Icon */
+.flat-icon-clock {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 4px solid currentColor;
+  position: relative;
+}
+
+.flat-icon-clock::before {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 10px;
+  background-color: currentColor;
+  top: 5px;
+  left: 12px;
+}
+
+.flat-icon-clock::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  background-color: currentColor;
+  top: 13px;
+  left: 12px;
+}
+
+/* Flat Pin Icon */
+.flat-icon-pin {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: currentColor;
+  position: relative;
+  margin: 0 auto;
+}
+
+.flat-icon-pin::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 14px solid currentColor;
+  bottom: -10px;
+  left: 6px;
+}
+
+/* Flat Phone Icon */
+.flat-icon-phone {
+  width: 22px;
+  height: 34px;
+  border: 4px solid currentColor;
+  border-radius: 4px;
+  position: relative;
+  margin-left: 6px;
+}
+
+.flat-icon-phone::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 4px;
+  background-color: currentColor;
+  bottom: 3px;
+  left: 4px;
+}
+
+/* Contact / Order Form */
+.form-wrapper {
+  background-color: var(--color-surface-dark);
+  border: 4px solid var(--color-primary);
+  padding: var(--space-32);
+}
+
+.form-heading {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: var(--space-8);
+  color: var(--color-cream);
+}
+
+.form-subheading {
+  font-size: 1rem;
+  color: var(--color-cream);
+  margin-bottom: var(--space-32);
+}
+
+/* Form Notification Feedback */
+.form-feedback {
+  display: none;
+  padding: var(--space-16);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: var(--space-24);
+}
+
+.form-feedback.success {
+  display: block;
+  background-color: var(--color-green);
+  color: var(--color-navy-text);
+}
+
+.form-feedback.error {
+  display: block;
+  background-color: var(--color-red);
+  color: var(--color-cream);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.form-label {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-cream);
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--color-bg);
+  border: 3px solid var(--color-primary);
+  color: var(--color-cream);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.form-input:focus {
+  border-color: var(--color-yellow);
+  background-color: #1a1733;
+}
+
+.form-select {
+  cursor: pointer;
+}
+
+.form-select option {
+  background-color: var(--color-bg);
+  color: var(--color-cream);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: var(--space-8);
+}
+
+/* --------------------------------------------------------------------------
+   9. Footer: Solid Red Band
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--color-red);
+  color: var(--color-cream);
+  padding-top: var(--space-48);
+  padding-bottom: var(--space-32);
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+.footer-logo {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: var(--space-8);
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+}
+
+.footer-link {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  padding: 4px 0;
+  position: relative;
+}
+
+.footer-link:hover {
+  background-color: var(--color-cream);
+  color: var(--color-red);
+  padding: 4px 8px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: var(--space-16);
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-cream);
+  color: var(--color-red);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.social-btn:hover {
+  background-color: var(--color-yellow);
+  color: var(--color-navy-text);
+}
+
+.footer-bottom {
+  margin-top: var(--space-32);
+  padding-top: var(--space-24);
+  border-top: 3px solid var(--color-cream);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   10. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* Tablet & Up (>= 768px) */
+@media (min-width: 768px) {
+  .hero-container {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Desktop & Up (>= 1024px) */
+@media (min-width: 1024px) {
+  .hamburger-btn {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: block;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .visit-layout {
+    grid-template-columns: 1fr 1.15fr;
+  }
+}
+
+/* Large Displays (>= 1280px) */
+@media (min-width: 1280px) {
+  .abstract-cup-composition {
+    width: 360px;
+    height: 360px;
+    transform: scale(1.1);
+    transform-origin: center center;
+  }
+}

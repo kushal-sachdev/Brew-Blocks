@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Blocks — Pure Coffee in Strict Flat Design</title>
+  <meta name="description" content="Brew Blocks is an artisanal coffee house crafted on solid geometric principles and pure coffee craftsmanship. Strict flat design.">
+  <!-- Google Fonts: Poppins (400, 700, 800) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" aria-label="Brew Blocks Home">
+        <span class="logo-block"></span>
+        <span class="logo-text">Brew Blocks</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#menu" class="nav-link">Menu</a></li>
+          <li class="nav-item"><a href="#story" class="nav-link">Story</a></li>
+          <li class="nav-item"><a href="#visit" class="nav-link">Visit</a></li>
+          <li class="nav-item"><a href="#visit-form" class="nav-link nav-link-order">Order</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Open Navigation Menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Full-Screen Solid Blue Mobile Navigation Panel -->
+  <div class="mobile-nav-panel" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <span class="mobile-logo-text">Brew Blocks</span>
+      <button class="close-menu-btn" id="close-menu-btn" aria-label="Close Navigation Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="#menu" class="mobile-nav-link">Menu</a></li>
+      <li><a href="#story" class="mobile-nav-link">Story</a></li>
+      <li><a href="#visit" class="mobile-nav-link">Visit</a></li>
+      <li><a href="#visit-form" class="mobile-nav-link mobile-order-btn">Order Now</a></li>
+    </ul>
+    <div class="mobile-nav-footer">
+      <p class="mobile-palette-hint">Strict Flat Geometric Coffee</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="hero-badge">Est. 2026 &bull; Pure Coffee</span>
+          <h1 class="hero-headline">Coffee, but make it simple.</h1>
+          <p class="hero-subheading">
+            Uncompromising single-origin beans, precision roasts, zero pretension. Pure flavor built from solid geometric fundamentals.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#menu" class="btn btn-yellow">Order Now</a>
+            <a href="#story" class="btn btn-outline">Our Philosophy</a>
+          </div>
+        </div>
+
+        <!-- Geometric Abstract Coffee Cup Composition -->
+        <div class="hero-visual" aria-label="Abstract coffee cup made of geometric shapes">
+          <div class="abstract-cup-composition">
+            <!-- Rising Steam Shapes -->
+            <div class="steam-shape steam-1"></div>
+            <div class="steam-shape steam-2"></div>
+            <div class="steam-shape steam-3"></div>
+
+            <!-- Red Circle: Cup Handle -->
+            <div class="geom-shape shape-handle" title="Red Circle Handle"></div>
+
+            <!-- Electric Blue Rounded Square: Cup Body -->
+            <div class="geom-shape shape-cup-body" title="Blue Rounded Square Body">
+              <!-- Yellow Rectangle: Cup Sleeve -->
+              <div class="geom-shape shape-sleeve" title="Yellow Rectangle Sleeve"></div>
+            </div>
+
+            <!-- Green Square: Saucer / Coaster -->
+            <div class="geom-shape shape-saucer" title="Green Square Saucer"></div>
+
+            <!-- Floating Geometric Accents -->
+            <div class="geom-shape accent-square-top" title="Accent Top"></div>
+            <div class="geom-shape accent-circle-bottom" title="Accent Bottom"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">The Menu</h2>
+          <p class="section-subtitle">Crafted with single-origin beans, served without unnecessary fanfare.</p>
+        </div>
+
+        <!-- Menu Category Switcher -->
+        <div class="category-tabs" role="group" aria-label="Menu Drink Categories">
+          <button class="tab-btn active" data-category-select="all">All</button>
+          <button class="tab-btn" data-category-select="hot">Hot</button>
+          <button class="tab-btn" data-category-select="cold">Cold</button>
+        </div>
+
+        <!-- 6 Menu Cards Grid -->
+        <div class="menu-grid" id="menu-grid">
+          <!-- Card 1: Electric Blue -->
+          <article class="menu-card card-blue" data-category="hot">
+            <div class="card-tag">Hot &bull; Single Origin</div>
+            <h3 class="card-name">Block Espresso</h3>
+            <p class="card-desc">Double concentrated extraction of Colombian Huila with notes of dark cacao and citrus peel.</p>
+            <div class="card-footer">
+              <span class="card-price">$4.00</span>
+              <a href="#visit-form" class="card-action">Select</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Yellow (Navy text) -->
+          <article class="menu-card card-yellow" data-category="hot">
+            <div class="card-tag">Hot &bull; Pour-Over</div>
+            <h3 class="card-name">Geometric Pour-Over</h3>
+            <p class="card-desc">Slow manual brew of washed Ethiopian Yirgacheffe revealing bright floral jasmine and bergamot.</p>
+            <div class="card-footer">
+              <span class="card-price">$5.50</span>
+              <a href="#visit-form" class="card-action">Select</a>
+            </div>
+          </article>
+
+          <!-- Card 3: Red -->
+          <article class="menu-card card-red" data-category="cold">
+            <div class="card-tag">Cold &bull; Draft</div>
+            <h3 class="card-name">Nitro Cold Cube</h3>
+            <p class="card-desc">Velvety nitrogen-infused Guatemalan brew poured slow over a solid cube of clarified ice.</p>
+            <div class="card-footer">
+              <span class="card-price">$5.00</span>
+              <a href="#visit-form" class="card-action">Select</a>
+            </div>
+          </article>
+
+          <!-- Card 4: Green (Navy text) -->
+          <article class="menu-card card-green" data-category="hot">
+            <div class="card-tag">Hot &bull; Milk</div>
+            <h3 class="card-name">Flat White Prime</h3>
+            <p class="card-desc">Micro-textured whole milk folded into a dense double ristretto with a silk sweet finish.</p>
+            <div class="card-footer">
+              <span class="card-price">$4.75</span>
+              <a href="#visit-form" class="card-action">Select</a>
+            </div>
+          </article>
+
+          <!-- Card 5: Electric Blue -->
+          <article class="menu-card card-blue" data-category="cold">
+            <div class="card-tag">Cold &bull; Signature</div>
+            <h3 class="card-name">Cardamom Tonic</h3>
+            <p class="card-desc">Chilled espresso floating on botanical tonic water with cracked organic green cardamom pods.</p>
+            <div class="card-footer">
+              <span class="card-price">$6.00</span>
+              <a href="#visit-form" class="card-action">Select</a>
+            </div>
+          </article>
+
+          <!-- Card 6: Yellow (Navy text) -->
+          <article class="menu-card card-yellow" data-category="cold">
+            <div class="card-tag">Cold &bull; Slow Extraction</div>
+            <h3 class="card-name">Kyoto Slow Drip</h3>
+            <p class="card-desc">16-hour chilled gravity extraction yielding ultra-smooth dark chocolate and toasted pecan syrup.</p>
+            <div class="card-footer">
+              <span class="card-price">$5.75</span>
+              <a href="#visit-form" class="card-action">Select</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section" id="story">
+      <div class="container story-container">
+        <!-- Left: Bold Manifesto Statement -->
+        <div class="story-statement">
+          <span class="section-tag">Our Philosophy</span>
+          <h2 class="statement-title">We stripped away the noise, foam competitions, and confusing jargon.</h2>
+          <p class="statement-body">
+            Modern coffee culture became obsessed with theater. At Brew Blocks, we build from first principles: direct relationships with producers, roast profiles tailored to enhance bean terroir, and precision brewing.
+          </p>
+          <p class="statement-body">
+            Nothing hidden behind artificial sweetness or excessive garnishes. Just solid coffee that delivers every single morning.
+          </p>
+        </div>
+
+        <!-- Right: Three Big Stat Blocks -->
+        <div class="story-stats">
+          <!-- Stat 1: Blue Block -->
+          <div class="stat-block stat-blue">
+            <div class="stat-number">12</div>
+            <div class="stat-label">Origins</div>
+            <p class="stat-desc">Single-producer lots traded directly with growers in Central America and East Africa.</p>
+          </div>
+
+          <!-- Stat 2: Yellow Block (Navy Text) -->
+          <div class="stat-block stat-yellow">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Roasts</div>
+            <p class="stat-desc">Light, Medium, Dark. Calibrated on our custom cast-iron drum roaster weekly.</p>
+          </div>
+
+          <!-- Stat 3: Green Block (Navy Text) -->
+          <div class="stat-block stat-green">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Simple Rule</div>
+            <p class="stat-desc">Never compromise bean integrity or freshness. If it's not excellent, we don't serve it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visit & Order Section -->
+    <section class="visit-section" id="visit">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Visit &amp; Order</h2>
+          <p class="section-subtitle">Drop by our street bar or place an advance pickup request below.</p>
+        </div>
+
+        <div class="visit-layout">
+          <!-- Solid Info Blocks -->
+          <div class="info-blocks-col">
+            <!-- Hours Block (Blue) -->
+            <div class="info-block info-blue">
+              <div class="info-icon-box">
+                <div class="flat-icon-clock"></div>
+              </div>
+              <h3 class="info-title">Opening Hours</h3>
+              <ul class="hours-list">
+                <li><span class="day">Monday &ndash; Friday</span> <span class="time">07:00 &ndash; 18:00</span></li>
+                <li><span class="day">Saturday</span> <span class="time">08:00 &ndash; 19:00</span></li>
+                <li><span class="day">Sunday</span> <span class="time">08:00 &ndash; 17:00</span></li>
+              </ul>
+            </div>
+
+            <!-- Address Block (Red) -->
+            <div class="info-block info-red">
+              <div class="info-icon-box">
+                <div class="flat-icon-pin"></div>
+              </div>
+              <h3 class="info-title">Location</h3>
+              <p class="info-text">404 Grid Avenue, Block 7</p>
+              <p class="info-subtext">Design District, Metropolis 90210</p>
+              <span class="info-badge">Metro Stop: Central Square (Line 2)</span>
+            </div>
+
+            <!-- Contact Block (Yellow with navy text) -->
+            <div class="info-block info-yellow">
+              <div class="info-icon-box">
+                <div class="flat-icon-phone"></div>
+              </div>
+              <h3 class="info-title">Direct Line</h3>
+              <p class="info-text">+1 (555) 273-9256</p>
+              <p class="info-subtext">hello@brewblocks.coffee</p>
+              <span class="info-badge">Inquiries &amp; Bean Subscriptions</span>
+            </div>
+          </div>
+
+          <!-- Contact / Order Form -->
+          <div class="form-col" id="visit-form">
+            <div class="form-wrapper">
+              <h3 class="form-heading">Send an Order or Message</h3>
+              <p class="form-subheading">Tell us what you need or request a batch roast pickup.</p>
+
+              <!-- Inline Alert Notification -->
+              <div class="form-feedback" id="form-feedback" role="alert" aria-live="polite"></div>
+
+              <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-group">
+                  <label for="user-name" class="form-label">Your Name</label>
+                  <input type="text" id="user-name" name="name" class="form-input" placeholder="e.g. Alex Chen" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="user-email" class="form-label">Email Address</label>
+                  <input type="email" id="user-email" name="email" class="form-input" placeholder="alex@example.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="order-drink" class="form-label">Drink / Order Selection</label>
+                  <select id="order-drink" name="drink" class="form-input form-select">
+                    <option value="General Inquiry">General Inquiry / Question</option>
+                    <option value="Block Espresso">Block Espresso ($4.00)</option>
+                    <option value="Geometric Pour-Over">Geometric Pour-Over ($5.50)</option>
+                    <option value="Nitro Cold Cube">Nitro Cold Cube ($5.00)</option>
+                    <option value="Flat White Prime">Flat White Prime ($4.75)</option>
+                    <option value="Cardamom Tonic">Cardamom Tonic ($6.00)</option>
+                    <option value="Kyoto Slow Drip">Kyoto Slow Drip ($5.75)</option>
+                    <option value="Whole Bean Bag">Whole Bean Bag (12oz, $18.00)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="user-message" class="form-label">Pickup Notes or Message</label>
+                  <textarea id="user-message" name="message" class="form-input form-textarea" rows="4" placeholder="Specify pickup time, milk preference, or questions..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-green btn-submit">Submit Order Request</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: Solid Red Band -->
+  <footer class="footer" id="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">Brew Blocks</span>
+        <p class="footer-tagline">Solid coffee. Strict flat design. Zero compromise.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero" class="footer-link">Back to Top</a>
+        <a href="#menu" class="footer-link">Menu</a>
+        <a href="#story" class="footer-link">Philosophy</a>
+        <a href="#visit" class="footer-link">Visit Us</a>
+      </div>
+
+      <div class="footer-socials" aria-label="Social links">
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">IG</a>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter)">X</a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">GH</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Brew Blocks Coffee Co. Built in Strict Flat Design. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
